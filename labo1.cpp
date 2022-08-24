@@ -41,7 +41,7 @@ int main () {
 
 
 Ej 4
-
+    
 # include <iostream>
 using namespace std;
 
@@ -49,13 +49,23 @@ int main() {
     int x;
     cout << "Ingrese un número natural mayor a cero";
     cin >> x;
-    bool primo = true;
-    for(int i = 2 ; i < x ; i++) {
-        if(x % i == 0) primo = false;
+    bool esPrimo = true;
+    if(x==1) {
+        esPrimo = false;
+    } else {
+        for(int i = 2 ; i < x ; i++) {
+            if(x % i == 0){
+                esPrimo = false;
+            }
 
+        }    
     }
-    if (primo == true) cout<<"el número es primo";
-    else cout<<"el número no es primo";
+    
+    if (esPrimo) {
+        cout<<"el número es primo";
+    } else{
+        cout<<"el número no es primo";  
+    }
     return 0;
 }
 
@@ -80,3 +90,114 @@ bool esPrimo(int n) {
     else {
         while(p && d<=sqrt(n)) {
             if(n%d == 0) {
+
+Ej 5
+# include <iostream>
+using namespace std;
+
+int fibonacci(int n) {
+   int b = 0;
+   int c = 1;
+   int sum = b + c;
+   int i = 2;
+
+   if(n<=1) {
+       return n;
+    } else {
+       while(i<=n) {
+           sum = b + c;
+           i = i + 1;
+           b = c;
+           c = sum;
+       }
+       return sum;
+   }
+
+}
+int main() {
+    int x;
+    cout << "dale poné un número si sos tan canchero";
+    cin >> x;
+    cout << fibonacci(int (x)) << endl;
+    return 0;
+}
+
+Ej 6
+# include <iostream>
+using namespace std;
+
+int sumaImpares(int n) {
+    int sum = 0;
+    int i = 1;
+    while(i<=n) {
+        if (i % 2 != 0){
+            sum = sum + i;
+            i = i + 1;
+    }else {
+            sum=sum;
+            i = i + 1;
+        }
+    }
+    return sum;
+}
+int main() {
+    int x;
+    cout << "dale poné un número si sos tan canchero";
+    cin >> x;
+    cout << sumaImpares(int (x)) << endl;
+    return 0;
+}                
+Ej 7
+# include <iostream>
+using namespace std;
+
+int sumaDivisores(int n) {
+    int sum = 0;
+    int i = 1;
+    while(i<=n) {
+        if (n % i == 0){
+            sum = sum + i;
+            i = i + 1;
+    }else {
+            sum=sum;
+            i = i + 1;
+        }
+    }
+    return sum;
+}
+int main() {
+    int x;
+    cout << "dale poné un número si sos tan canchero";
+    cin >> x;
+    cout << sumaDivisores(int (x)) << endl;
+    return 0;
+}    
+                
+Ej 8
+# include <iostream>
+using namespace std;
+
+int fact(int a) {
+    int prod = 1;
+    for(int i=1;i<=a;i++) {
+        prod = prod*i;
+    }
+    return prod;
+}
+int combinatorio(int n, int k) {
+    if(n==k || k==0){
+        return 1;
+    } else {
+        return fact(n)/(fact(k)*fact(n-k));
+    }
+}
+
+int main() {
+    int x;
+    int y;
+    cout << "dale poné un número si sos tan canchero";
+    cin >> x;
+    cin >> y;
+    cout << combinatorio(int (x), int (y)) << endl;
+    return 0;
+}   
