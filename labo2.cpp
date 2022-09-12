@@ -240,3 +240,88 @@ int main(){
     cout << "La circunferencia es: " << c << endl;
     cout << "El área es: " << a << endl;
 }
+
+// Ejercicio 6 triplicarPorValor
+
+# include <iostream>
+using namespace std;
+
+int triplicarPorValor(int v){
+    int cuenta = 3*v;
+    return cuenta;
+}
+
+int main(){
+    int x;
+    cout << "Ingresa un número: "<< endl;
+    cin >> x;
+    cout << "El triple es: " << triplicarPorValor(x) << endl;
+}
+
+// Ejercicio 6 triplicarPorReferencia
+
+# include <iostream>
+using namespace std;
+
+int triplicarPorReferencia(int &v){
+    v = 3*v;
+    return 0;
+}
+
+int main(){
+    int x;
+    cout << "Ingresa un número: "<< endl;
+    cin >> x;
+    triplicarPorReferencia(x);
+    cout << "El triple es: " << x << endl;
+}
+
+// Ejercicio 7
+# include <iostream>
+using namespace std;
+
+void swap(int &a, int &b){
+    int c = a;
+    a = b;
+    b = c;
+}
+
+int main(){
+    int x;
+    int y;
+    cout << "Ingresa un número: "<< endl;
+    cin >> x;
+    cout << "Ingresa otro: "<< endl;
+    cin >> y;
+    cout << "swap" << endl;
+    swap(x, y);
+    cout << x << endl;
+    cout << y << endl;
+}
+
+// Ejercicio 8
+
+# include <iostream>
+using namespace std;
+
+void collatz(int n, int& cantPasos) {
+    cantPasos = 0;
+    while (n > 1){
+        if (n % 2 == 0) {
+             n = n / 2;
+            cantPasos++;
+        } else {
+            n = (n * 3) + 1;
+            cantPasos++;
+        }
+    }
+}
+
+int main(){
+    int a;
+    int b;
+    cout << "Ingresa un número: "<< endl;
+    cin >> a;
+    collatz(a, b);
+    cout << "La cantidad de pasos es: " <<  b << endl;
+}
