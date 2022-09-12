@@ -204,3 +204,16 @@ int main(){
     cin >> x;
     cout << "Tu número en base decimal es: " << pasarADecimal(x) << endl;
 }
+
+// Ejercicio 5
+# include <iostream>
+using namespace std;
+
+int main(){
+    float x;
+    cout << "Ingresa el radio: "<< endl;
+    cin >> x;
+    cout << "El diámetro es: " << x*2 << endl;
+    cout << "La circunferencia es: " << 2*x*3.13159 << endl;
+    cout << "El área es: " << x*x*3.13159 << endl;
+}
