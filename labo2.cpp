@@ -217,3 +217,26 @@ int main(){
     cout << "La circunferencia es: " << 2*x*3.13159 << endl;
     cout << "El área es: " << x*x*3.13159 << endl;
 }
+
+// otra manera de hacer el 5 usando valor por referencia
+
+# include <iostream>
+using namespace std;
+
+float calcular(float radio, float &diametro, float &circunferencia, float &area){
+    diametro = 2*radio;
+    float pi = 3.14159;
+    circunferencia = 2 * pi * radio;
+    area = pi * radio * radio;
+    return 0;
+}
+
+int main(){
+    float d, c , a , r;
+    cout << "Ingresa el radio: "<< endl;
+    cin >> r;
+    calcular(r, d, c, a);
+    cout << "El diámetro es: " << d << endl;
+    cout << "La circunferencia es: " << c << endl;
+    cout << "El área es: " << a << endl;
+}
