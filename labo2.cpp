@@ -325,3 +325,26 @@ int main(){
     collatz(a, b);
     cout << "La cantidad de pasos es: " <<  b << endl;
 }
+
+// Ejercicio 8
+
+# include <iostream>
+using namespace std;
+
+int division(int dividendo, int divisor, int& cociente, int& resto) {
+    resto = dividendo % divisor;
+    cociente = (dividendo - resto)/divisor;
+    return 0;
+}
+
+int main(){
+    int a, b;
+    int c, r;
+    cout << "Ingresa un dividendo: "<< endl;
+    cin >> a;
+    cout << "Ingresa un divisor: "<< endl;
+    cin >> b;
+    division(a, b, c, r);
+    cout << "El cociente es: " <<  c << endl;
+    cout << "El resto es: " <<  r << endl;
+}
