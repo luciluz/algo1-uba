@@ -348,3 +348,20 @@ int main(){
     cout << "El cociente es: " <<  c << endl;
     cout << "El resto es: " <<  r << endl;
 }
+
+// otra manera sin '/' ni '%'
+
+# include <iostream>
+using namespace std;
+
+void division(int dividendo, int divisor, int& cociente, int& resto) {
+    cociente = 0;
+    resto = 0;
+    int d = dividendo;
+    while(d >= divisor){
+        d += - divisor;
+        cociente++;
+    }
+    resto = d;
+}
+
