@@ -100,11 +100,6 @@ vector<int> rotar(vector<int>& v, int k){
 
 // Esto puede ir en main
 
-#include "generador.h"
-#include "vectores.h"
-
-using namespace std;
-
 vector<int> v = {1,2,3,4,5}; // probar con distintos vectores
 int k = 1; // probar con distinto valores
 
@@ -167,11 +162,6 @@ vector<int> factoresPrimos(int n){
 
 // Esto puede ir en main
 
-#include "generador.h"
-#include "vectores.h"
-
-using namespace std;
-
 int main() {
     int k;
     cin >> k;
@@ -193,12 +183,6 @@ void mostrarVector(vector<int> v){
 
 // Ejercicio 8
 
-#include "generador.h"
-#include "vectores.h"
-#include <iostream>
-#include <fstream>
-using namespace std;
-
 vector<int> leerVector(string nombreArchivo){
     vector<int> v;
         ifstream fin;
@@ -206,7 +190,7 @@ vector<int> leerVector(string nombreArchivo){
         while (!fin.eof()){
             int i;
             fin >> i;
-            v.push_back(i);
+            v.push_back(i); //esto solo lo uso porque en algunos archivos me duplica el ultimo elemento
     } v.pop_back();
         return v;
 }
@@ -219,11 +203,6 @@ int main() {
 }
 
 // Ejercicio 9
-#include "generador.h"
-#include "vectores.h"
-#include <iostream>
-#include <fstream>
-using namespace std;
 
 vector<int> guardarVector(vector<int> v, string nombreArchivo){
     int i = 0;
@@ -243,5 +222,39 @@ vector<int> guardarVector(vector<int> v, string nombreArchivo){
 int main() {
     vector<int> l ={1,2,3,4}; // probar con distintos vectores
     guardarVector(l,"lista_del_1_al_4.txt");
+    return 0;
+}
+
+// Ejercicio 10
+
+int sumaIzq(vector<int> v, int k){
+    int res = 0;
+    while(k>0){
+        res += v[k];
+        k--;
+    } return res;
+}
+
+int sumaDer(vector<int> v, int k){
+    int res = 0;
+    while(k<v.size()){
+        res += v[k+1];
+        k++;
+    } return res;
+}
+
+int elementoMedio(vector<int> v) {
+    for (int i = 0; i < v.size(); i++) {
+        if (sumaIzq(v, i) > sumaDer(v, i)) {
+            return v[i];
+        }
+    }
+}
+// Esto puede ir en main
+
+int main() {
+    vector<int> l;
+    l = leerVector("elementoMedio.in");
+    cout << elementoMedio(l);
     return 0;
 }
