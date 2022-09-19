@@ -28,17 +28,13 @@ int main() {
 // Ejercicio 2
 // Dado un vector v, devuelve el valor maximo encontrado.
 int mayor(vector<int> v){
-    int maximo = 0;
-    int i = 0;
-    while(i<v.size()){
-        if(maximo <= v[i]){
-            maximo = v[i];
-            i++;
-        } else {
-            i++;
+    int chiquito = v[0];
+    for(int i=1;i<v.size();i++){
+        if(chiquito < v[i]){
+            chiquito = v[i];
         }
-        } return maximo;
-    }
+    } return chiquito;
+}
 
 // Esto va en main
 
@@ -257,4 +253,41 @@ int main() {
     l = leerVector("elementoMedio.in");
     cout << elementoMedio(l);
     return 0;
+}
+
+// Ejercicio 11
+// el codigo corre bien, solo que te reemplaza el archivo
+int menor(vector<int> v){
+    int chiquito = v[0];
+    for(int i=1;i<v.size();i++){
+        if(chiquito > v[i]){
+            chiquito = v[i];
+        }
+    } return chiquito;
+}
+
+int cantidadAp(int k, vector<int> v){
+    int contador = 0;
+    int i = 0;
+    while(i<v.size()){
+        if(k==v[i]){
+            contador++;
+        } i++;
+    } return contador;
+}
+
+void cantApariciones(string nombreArchivo){
+    vector<int> v = leerVector(nombreArchivo);
+    vector<int> norepetidos = v;
+    int cantidad;
+    int n = 1;
+    ofstream fout;
+    fout.open(nombreArchivo);
+    for(int i=menor(v);i<= mayor(v);i++){
+        if(cantidadAp(i,v) != 0){
+        cantidad = cantidadAp(i, v);
+        fout << "linea "<< n << ": " << i << " " << cantidad << endl;
+        n++;
+        }
+    } fout.close();
 }
