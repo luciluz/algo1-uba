@@ -77,7 +77,8 @@ vector<int> v = {1,2,3,4,5}; // puedes probar con distintos vectores
 
 int main() {
 reverso(v);
-    cout << "el reverso del vector es: " << mostrarVector(v) << endl;
+    cout << "el reverso del vector es: ";
+    mostrarVector(v);
 }
 
 //Ejercicio 4
@@ -109,7 +110,8 @@ int k = 1; // probar con distinto valores
 
 int main() {
     rotar(v, k);
-    cout << "la rotación de valor " << k << " queda: " << mostrarVector(v) <<endl;
+    cout << "la rotación de valor " << k << " queda: ";
+    mostrarVector(v);
 }
 
 // Ejercicio 5
@@ -141,4 +143,105 @@ bool estaOrdenado(vector<int> v){
         return true;
     }
     return false;
+}
+
+// Ejercicio 6 
+
+bool esPrimo(int n){
+    for(int i = 2; i < n; i++){
+        if(n % i == 0){
+            return false;
+        }
+    } return true;
+}
+
+vector<int> factoresPrimos(int n){
+    vector<int> v;
+    for(int i=2; i<=n;i++){
+        if(n % i == 0 && esPrimo(i)){
+            v.push_back(i);
+        }
+    }
+    return v;
+}
+
+// Esto puede ir en main
+
+#include "generador.h"
+#include "vectores.h"
+
+using namespace std;
+
+int main() {
+    int k;
+    cin >> k;
+    vector<int> v = factoresPrimos(k);
+    mostrarVector(v);
+}
+
+
+// Ejercicio 7 
+// Dado un vector de enteros muestra por la salida estándar, el vector
+// Ejemplo: si el vector es <1, 2, 5, 65> se debe mostrar en pantalla [1, 2, 5, 65]
+void mostrarVector(vector<int> v){
+    cout << "[";
+    for(int i=0; i<v.size()-1; i++) {
+        cout << v[i] << ", ";
+    }
+    cout << v[v.size()-1] << "]";
+}
+
+// Ejercicio 8
+
+#include "generador.h"
+#include "vectores.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+vector<int> leerVector(string nombreArchivo){
+    vector<int> v;
+        ifstream fin;
+        fin.open(nombreArchivo);
+        while (!fin.eof()){
+            int i;
+            fin >> i;
+            v.push_back(i);
+    } v.pop_back();
+        return v;
+}
+
+int main() {
+    vector<int> l;
+    l = leerVector("lista_de_numeros.txt");
+    mostrarVector(l);
+    return 0;
+}
+
+// Ejercicio 9
+#include "generador.h"
+#include "vectores.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+vector<int> guardarVector(vector<int> v, string nombreArchivo){
+    int i = 0;
+    ofstream fout;
+    fout.open(nombreArchivo);
+    fout << "[";
+    while(i <v.size()-1){
+        fout << v[i] << ", ";
+        i++;
+    }
+    fout << v[v.size()-1] << "]";
+    fout.close();
+    return v;
+}
+
+// Esto puedes poner en main
+int main() {
+    vector<int> l ={1,2,3,4}; // probar con distintos vectores
+    guardarVector(l,"lista_del_1_al_4.txt");
+    return 0;
 }
