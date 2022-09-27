@@ -186,9 +186,8 @@ vector<int> leerVector(string nombreArchivo){
         while (!fin.eof()){
             int i;
             fin >> i;
-            v.push_back(i); //esto solo lo uso porque en algunos archivos me duplica el ultimo elemento
-    } v.pop_back();
-        return v;
+            v.push_back(i);
+    } return v;
 }
 
 int main() {
@@ -278,7 +277,6 @@ int cantidadAp(int k, vector<int> v){
 
 void cantApariciones(string nombreArchivo){
     vector<int> v = leerVector(nombreArchivo);
-    vector<int> norepetidos = v;
     int cantidad;
     int n = 1;
     ofstream fout;
@@ -290,4 +288,70 @@ void cantApariciones(string nombreArchivo){
         n++;
         }
     } fout.close();
+}
+
+// Ejercicio 12
+
+vector<string> leerVectorString(string nombreArchivo){
+    vector<string> c;
+    ifstream fin;
+    fin.open(nombreArchivo);
+    while (!fin.eof()){
+        string i;
+        fin >> i;
+        c.push_back(i);
+    } return c;
+}
+
+int cantidadAparicionesDePalabra(string nombreArchivo, string palabra){
+    vector<string> p = leerVectorString(nombreArchivo);
+    int cantidad = 0;
+    int i = 0;
+    ifstream fin;
+    fin.open(nombreArchivo);
+    while(i < p.size()){
+        if(p[i] == palabra){
+            cantidad++;
+
+             } i++;
+        } return cantidad;
+    }
+
+// Esto puede ir en main
+
+int main() {
+    int x;
+    x = cantidadAparicionesDePalabra("cantidadAparicionesDePalabra.in", "Esa");
+    cout << "la palabra aparece: " << x << " veces." << endl;
+}
+
+// Ejercicio 14
+
+vector<int> concatenarVectores(vector<int> v, vector<int> w){
+    vector<int> vw;
+    for(int i = 0; i < v.size(); i++){
+        vw.push_back(v[i]);
+    }
+    for(int j= 0; j < w.size(); j++){
+        vw.push_back(w[j]);
+    } return vw;
+}
+
+vector<int> ordenarVector(vector<int> v){
+    vector<int> w;
+    for(int i=menor(v);i<= mayor(v);i++){
+        if(cantidadAp(i,v) != 0){
+            for(int j = cantidadAp(i,v); j > 0; j--){
+                w.push_back(i);
+            }
+        }
+    } return w;
+}
+
+void ordenarSecuencias(string nombreArchivoIn1, string nombreArchivoIn2, string nombreArchivoOut){
+    vector<int> v1 = leerVector(nombreArchivoIn1);
+    vector<int> v2 = leerVector(nombreArchivoIn2);
+    vector<int> v3 = concatenarVectores(v1, v2);
+    vector<int> v4 = ordenarVector(v3);
+    guardarVector(v4, nombreArchivoOut);
 }
