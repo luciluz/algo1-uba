@@ -355,3 +355,22 @@ void ordenarSecuencias(string nombreArchivoIn1, string nombreArchivoIn2, string 
     vector<int> v4 = ordenarVector(v3);
     guardarVector(v4, nombreArchivoOut);
 }
+
+// Ejercicio 15
+
+vector<int> interseccion(){
+    string nombreArchivo1, nombreArchivo2;
+    cin >> nombreArchivo1;
+    cin >> nombreArchivo2;
+    vector<int> v, w, vw;
+    v = leerVector(nombreArchivo1);
+    w = leerVector(nombreArchivo2);
+    for(int i = 0; i < v.size(); i++){
+        for(int j = 0; j < w.size(); j++){
+            if(v[i]==w[j]){
+                vw.push_back(v[i]);
+            }
+        }
+    }
+    return vw;
+}
