@@ -1,0 +1,3 @@
+/home/luci/Escritorio/lic_datos/algo1/semana 4/template-alumnos/src/cmake-build-debug/CMakeFiles/src.dir
+/home/luci/Escritorio/lic_datos/algo1/semana 4/template-alumnos/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/luci/Escritorio/lic_datos/algo1/semana 4/template-alumnos/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
