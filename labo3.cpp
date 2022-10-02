@@ -325,6 +325,33 @@ int main() {
     cout << "la palabra aparece: " << x << " veces." << endl;
 }
 
+// Ejercicio 13
+
+vector<float> guardarVectorFloat(vector<float> v, string nombreArchivo){
+    int i = 0;
+    ofstream fout;
+    fout.open(nombreArchivo);
+    fout << "[";
+    while(i <v.size()-1){
+        fout << v[i] << ", ";
+        i++;
+    }
+    fout << v[v.size()-1] << "]";
+    fout.close();
+    return v;
+}
+
+void promedio(string nombreArchivoIn1, string nombreArchivoIn2, string nombreArchivoOut){
+    vector<int> v1 = leerVector(nombreArchivoIn1);
+    vector<int> v2 = leerVector(nombreArchivoIn2);
+    vector<float> v3;
+    float promedio;
+    for(int i = 0; i < v1.size(); i++){
+        promedio = (v1[i]+v2[i])/2;
+        v3.push_back(promedio);
+    }   guardarVectorFloat( v3, nombreArchivoOut);
+}
+
 // Ejercicio 14
 
 vector<int> concatenarVectores(vector<int> v, vector<int> w){
