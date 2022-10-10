@@ -39,3 +39,16 @@ int indiceMinSubsec(vector<int> v, int l, int r){
         }
     } return res;
 }
+
+// Ejercicio 4
+void ordenar1(vector<int>& v){
+    vector<int> v0 = v;
+    int k;
+    int j;
+    for(int i = 0; i < v.size(); i++){
+        k = v[i];
+        j = indiceMinSubsec(v, i, v.size() -1);
+        v[i] = v[indiceMinSubsec(v, i, v.size() -1)];
+        v[j] = k;
+    }
+}
