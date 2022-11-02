@@ -149,8 +149,22 @@ bool tieneRepetidos(string s){
 }
 
 string rotar(string s, int j){
-	string res(s);
-	return res;
+    string res = s;
+    int k = j%s.size();
+    for(int i = 0; i < s.size(); i++){
+        if(i+k < s.size()){
+            res[i+k] = s[i];
+        } else{
+            res[i-s.size()+k] = s[i];
+        }
+    }
+    return res;
+}
+
+// no se puede usar substring
+string darVueltaK(string s, int k){
+    string res(s);
+    return res;
 }
 
 // no se puede usar substring
